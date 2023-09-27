@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style id="customRules"></style><script async="" src="js/sp-2.0.0-dm-0.1.min.js"></script><script type="text/javascript">
+    window._currentDevice = 'mobile';
+    window.Parameters = window.Parameters || {
+        AjaxContainer: 'div.dmBody',
+        WrappingContainer: 'div.dmOuter',
+        AccountUUID: 'cfa227fbd4b640b2b767a4dd44af8177',
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: '50f8e25b',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Wed Sep 27 03:54:00 UTC 2023',
+        ExternalUid: null,
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: '2ab033e3ec484ec7aa1f8e87b1e1c293',
+        InitialPageId: '1134059502',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '37860',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: '92622994',
+        StoreVersion: 2,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        NotificationSubDomain: 'null',
+        HasCustomDomain: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'en',
+        currentLocale: 'en',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 5,
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: false,
+        planID: '801',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 22;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = 'js/runtime-service-worker.js';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return;
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<meta id="view" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Home
+</title>
+<link rel="apple-touch-icon" type="image/x-icon" href="images/favicon_d1_res.ico">
+<link rel="icon" href="images/favicon_d1_res.ico" type="image/x-icon" />
+<script>
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if(!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function() {
+            },
+            getCurrentDeviceType: function() {
+                return window._currentDevice;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+<script id="d-js-load-css">
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    cssLinks = null;
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if(link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      }  
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+<script data-role="deferred-init" type="text/javascript">
+    function Def(){this.promise=new Promise((function(a,b){this.resolve=a,this.reject=b}).bind(this))}
+    const defs={};
+    window.getDeferred=function(a){return null==defs[a]&&(defs[a]=new Def),defs[a]}
+    window.waitForDeferred = function (b, a, c) {
+      let d = window?.getDeferred?.(b);
+      d
+        ? d.promise.then(a)
+        : c && ["complete", "interactive"].includes(document.readyState)
+        ? setTimeout(a, 1)
+        : c
+        ? document.addEventListener("DOMContentLoaded", a)
+        : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}
+</style>
+<style id="cssVariables" type="text/css">
+    
+</style>
+
+
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+</style>
+
+
+
+<style id="criticalCss">
+    @font-face{font-family:Lobster;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/neILzCirqoswsqX9zoKmMw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Cabin;font-style:normal;font-weight:400 700;font-stretch:100%;font-display:swap;src:url(fonts/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvqdns.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Alegreya;font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/4UaBrEBBsBhlBjvfkSLhx6g.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}.dmInner{min-height:100vh!important;position:relative}[dmtemplateid*=amburger] .dmLayoutWrapper{overflow:hidden}#dmRoot.dmMobileBody #dm .dmOuter :not(.dmInner){background-attachment:scroll!important}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}#dm .dmBody div.u_1183564340,.dmRoot .hasFontIcon{background-image:none!important}.dmPopupMask{position:fixed;margin:0;display:none;width:10px;z-index:1000000999;top:0;left:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{padding:10px;text-align:left;position:fixed;margin:0 10px;top:10px;left:0;width:93%;z-index:1000009999!important;box-sizing:border-box;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}#dm .p_hfcontainer nav.u_1762902015,.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.layout-drawer-hamburger,.runtime-module-container[dmtemplateid*=amburger] .dmLayoutWrapper{background-color:transparent}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}#dm .dmBackToTop{position:fixed!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow .dmRespColsWrapper{display:flex}.dmMobileBody #dm .dmRespRow .dmRespColsWrapper{flex-wrap:wrap}.pswp{display:none;z-index:9999999999!important}.align-center{margin-left:auto;margin-right:auto}.text-align-center{text-align:center}body.fix-mobile-scrolling{overflow:initial}#dmRoot{text-decoration-skip-ink:none}body{-webkit-overflow-scrolling:touch}:not(.runtime-module-container) .layout-drawer,:not(.runtime-module-container) .layout-drawer-hamburger,:not(.runtime-module-container) .layout-drawer-overlay{visibility:hidden}:not(.runtime-module-container) .layout-drawer{position:fixed;transform:translate(-100%,-100%)}:not(.runtime-module-container) .layout-drawer-overlay{opacity:0}.runtime-module-container{width:100%}.runtime-module-container[dmtemplateid*=amburger] #site_content,.runtime-module-container[dmtemplateid*=amburger] .dmInner{position:static}.runtime-module-container[dmtemplateid*=amburger] #site_content .site_content{position:relative}.runtime-module-container .hamburger-header-container{position:fixed;z-index:2;top:0;left:0;width:100%}.runtime-module-container .hamburger-header-container .hamburger-header{min-height:43px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-hamburger,.runtime-module-container .layout-drawer-overlay{visibility:visible}.runtime-module-container[dmtemplateid*=amburger] .site_content{margin-top:59px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-overlay{height:100%;position:fixed;top:0;left:0}.runtime-module-container .layout-drawer{background-color:#fff;width:75vw;transform:translate(-100%,0);overflow:auto;-webkit-overflow-scrolling:auto;z-index:13;display:flex;flex-direction:column}.runtime-module-container .layout-drawer .dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:0}.runtime-module-container .layout-drawer[data-origin=top]{min-height:20vh;min-width:40vw;max-height:100%;height:auto;width:100%;transform:translate(0,-100%)}.runtime-module-container .layout-drawer[data-origin=top]#mobile-hamburger-drawer{min-height:40vh}.runtime-module-container .layout-drawer-overlay{width:100vw;background-color:rgba(0,0,0,.4);opacity:0;z-index:6}body:not([data-flex-site]) .layout-drawer .dmRespRow:not(:first-of-type):not(:last-of-type){flex:1 1 auto}.layout-drawer-hamburger{position:fixed;left:18px;margin-left:env(safe-area-inset-left);padding:17px 11px;z-index:13;width:52px;height:52px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;outline:0;top:18px;border-radius:0}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}@media (max-width:767px){.layout-drawer-hamburger{position:fixed;left:10px;margin-left:env(safe-area-inset-left);padding:13px 9px;z-index:13;width:40px;height:40px;background-color:transparent;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;outline:0;top:10px;border-radius:0}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}}@media (min-width:1025px){:root{--btn-text-font-size:30px}}@media (min-width:768px) and (max-width:1024px){:root{--btn-text-font-size:30px}}#dm-outer-wrapper #hamburger-header-container #mobile-hamburger-header .dmRespRow .dmRespCol{display:flex;flex-direction:column;justify-content:center}nav{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}button{font-family:inherit;font-size:100%;margin:0;line-height:normal;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}*,:after,:before{box-sizing:border-box}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:' ';display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmMobileBody .dmRespRow .dmRespCol{position:relative;padding-left:15px;padding-right:15px;float:left}.dmMobileBody .dmRespRow .small-2{position:relative;width:16.66667%}.dmMobileBody .dmRespRow .small-6{position:relative;width:50%}.dmMobileBody .dmRespRow .small-10{position:relative;width:83.33333%}.dmMobileBody .dmRespRow .small-12{position:relative;width:100%}.dmMobileBody [class*=column]+[class*=column]:last-child{float:right}[class*=' dm-common-icons-']{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-common-icons!important}.dm-common-icons-close:before{content:'\e901'}#dm div.dmContent [class*=' icon-'],[class*=' icon-']{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=' icon-']:before{text-decoration:none;display:inline-block;speak:none}a [class*=' icon-']{display:inline}[class*=' icon-']{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:'\f005'}.icon-phone:before{content:'\f095'}.icon-angle-down:before{content:'\f107'}#dm .dmRespRow .dmRespCol>.dmWidget{overflow:initial}.dmLayoutWrapper.dmStandardMobile,body{overflow:hidden}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:280px;max-width:100%}}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;clear:both;position:relative;text-align:center;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmInner .dmWidget:after{content:'';display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}.imageWidget img[width][height],img[width][height]{height:auto}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;line-height:normal;white-space:normal;padding:10px 7px;max-width:98%}#dm .dmInner .dmBody .hide-for-small,.hide-for-small{display:none!important}@supports (padding:0px){.dmMobileBody .dmRespColsWrapper{padding-left:env(safe-area-inset-left)!important;padding-right:env(safe-area-inset-right)!important}}.imageWidget a{font-style:italic;text-align:center}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-center{text-align:center!important}.dmNewParagraph[data-version] h1,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{width:100%;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h1,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}a,img,li,ul{vertical-align:top}#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmInner{font-size:16px;background:#fff;color:#333}.dmInner a{color:#7fbeb1;outline:0;vertical-align:inherit}.dmInner ul:not(.defaultList){padding:0}DIV.dmBody{padding:0;clear:both}.dmContent{margin:0;padding:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}.dmMobileBody .dmLayoutWrapper{background-color:#fff}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmRespCol>[dmle_extension]:not(:first-child){margin-top:10px}.imageWidget:not(.displayNone) img{width:100%}.dmMobileBody .imageWidget{text-align:center}#dm .dmRespColsWrapper{display:block}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLinksMenu{float:none!important;display:block}#dm .dmBackToTop{width:30px;height:30px;opacity:0;background:rgba(0,0,0,.6);z-index:200;bottom:10px;right:10px;border:1px solid #fff;-moz-box-shadow:0 0 1px rgba(247,247,247,.4);-webkit-box-shadow:0 0 1px rgba(247,247,247,.4);box-shadow:0 0 1px rgba(247,247,247,.4)}#dm .dmBackToTop:after,#dm .dmBackToTop:before{content:'';position:absolute;width:4px;height:15px;background:#fff;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;left:8px;top:6px;-ms-transform:rotate(45deg);-webkit-transform:rotate(45deg);transform:rotate(45deg)}#dm .dmBackToTop:after{left:16px;-ms-transform:rotate(-45deg);-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}body{background-color:#eee}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.main-navigation.unifiednav{-js-display:flex;display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{-js-display:flex;display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{flex-wrap:wrap}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{-js-display:flex;display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{-js-display:flex;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=BORDER_SHORT] .iconBg,#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=THICK_BORDER_ROUND] .iconBg,.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav.effect-text-color{padding:12px 15px}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{justify-content:inherit}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container{flex-direction:column;flex:1 1 100%}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{padding:8px 0;margin:0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:initial}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap{flex-direction:column}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{content:''!important;width:100%;height:0;color:#d1d1d1;align-self:flex-start;border:0 solid currentColor}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_4] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:8px 0}.dmMobileBody #dm .main-navigation.unifiednav .nav-item-text{position:relative}#dm .dmBody a.u_1271261591,#dm .p_hfcontainer nav.u_1762902015{float:none!important;left:0!important;position:relative!important}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:1px}.dmMobileBody .hamburger-header .dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column{min-height:55px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed):empty{min-height:1px}.dmMobileBody .hamburger-drawer .dmRespRow:not(.dmPlaceHolderRespRow):first-child .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column,.dmMobileBody .hamburger-drawer .dmRespRow:not(.dmPlaceHolderRespRow):first-child .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty,.dmMobileBody .hamburger-drawer .dmRespRow:not(.dmPlaceHolderRespRow):last-child .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column,.dmMobileBody .hamburger-drawer .dmRespRow:not(.dmPlaceHolderRespRow):last-child .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:0!important}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column{min-height:100px}#dm div.dmInner{font-family:Cabin,"Cabin Fallback"}#dm div.dmRespCol>*{line-height:150%}#dm div.dmInner h1{font-family:Lobster,"Lobster Fallback"}#dm div.dmContent h1{color:#fff}#dm div.dmRespCol>[data-version]{line-height:1.5}#dm DIV.dmInner{background-repeat:no-repeat;background-image:none;background-size:cover;background-position:50% 0;background-attachment:fixed}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:30px}}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=THICK_BORDER_ROUND]{border-radius:6px;overflow:initial;background-clip:border-box}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=THICK_BORDER_ROUND] .text{padding:10px 7px}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=BORDER_SHORT]{overflow:initial;background-clip:border-box;border-radius:1px}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=BORDER_SHORT] .text{padding:16px 0}#dm .dmBody a.u_1271261591 .iconBg,#dm .dmBody a.u_1310681934 .iconBg,#dm .dmBody a.u_1512550420 .iconBg,#dm .dmBody a.u_1782923251 .iconBg{display:none!important}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget[data-buttonstyle=BORDER_SHORT]{width:222px}}#dm div.dmInner #site_content .dmWidget{background-color:var(--btn-bg-color);background-image:var(--btn-bg-image);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm div.dmInner #site_content .dmWidget span.text{color:var(--btn-text-color);font-family:var(--btn-text-font-family);font-size:var(--btn-text-font-size);text-decoration:var(--btn-text-decoration)}#dm div.dmInner #site_content .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm .p_hfcontainer .u_1762902015.main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{align-self:center!important}#dm .p_hfcontainer .u_1762902015.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{justify-content:center!important;text-align:center!important;padding-top:6px!important;padding-bottom:6px!important}#dm .p_hfcontainer nav.u_1762902015{color:#fff!important}#dm .p_hfcontainer div.u_1831440515{background-color:rgba(255,255,255,.07)!important}#dm .p_hfcontainer nav.u_1762902015.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{color:rgba(39,42,47,1)!important;font-family:Arial,"Arial Fallback"!important;font-size:16px!important}#dm .p_hfcontainer div.u_1002654672{box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important}#dm .p_hfcontainer div#mobile-hamburger-header{background-color:#fff!important;padding-top:0!important;padding-bottom:0!important;box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;border-style:solid!important;border-width:0!important}[dmtemplateid=mobileHamburgerLayout] .layout-drawer-hamburger.hamburger-on-header{color:rgba(102,102,102,1)!important;background-color:rgba(0,0,0,0)!important}#dm .p_hfcontainer div.u_1091455892{padding-right:10px!important;padding-left:0!important}#dm .p_hfcontainer #mobile-hamburger-drawer.layout-drawer[data-origin=top]:not([data-auto-height]){height:100%!important}#dm .p_hfcontainer div#mobile-hamburger-drawer.layout-drawer{background-color:rgba(255,255,255,1)!important}#dm .dmBody a.u_1271261591,#dm .dmBody a.u_1512550420,#dm .dmBody a.u_1782923251{background-color:rgba(0,0,0,1)!important}#dm .p_hfcontainer div.u_1049433823{padding:0!important}#dm .p_hfcontainer div.u_1066039602{margin:0!important;padding:0!important}#dm .p_hfcontainer div.u_1831440515{margin:0!important;padding:25px 0!important}#dm .p_hfcontainer div.u_1972613735{margin:0!important;padding:30px 20px 0!important}#dm .p_hfcontainer nav.u_1762902015{top:0!important;height:auto!important;justify-content:center!important;align-items:stretch!important;min-width:0!important;text-align:center!important;padding:12px 15px!important;margin:0 auto!important}#dm .p_hfcontainer div.u_1654834210{padding-right:20px!important;padding-left:20px!important;padding-top:15px!important}#dm .p_hfcontainer div.u_1002654672{width:auto!important;padding:10px 0!important;margin:0!important}[dmtemplateid=mobileHamburgerLayout].runtime-module-container .layout-drawer-hamburger{top:17.5px!important}#dm .dmBody a.u_1271261591,#dm .dmBody div.u_1183564340{top:auto!important;min-width:0!important;text-align:center!important}[dmtemplateid=mobileHamburgerLayout] .site_content{margin-top:75px!important}#dm .dmBody a.u_1512550420{border-radius:6px!important;-moz-border-radius:6px!important;-webkit-border-radius:6px!important}#dm .dmBody a.u_1512550420 span.text{font-family:Alegreya,"Alegreya Fallback"!important}#dm .dmBody .u_1167475789,#dm .dmBody .u_1273516257,#dm .dmBody .u_1890676532,#dm .dmBody .u_1919917797{width:100%!important}#dm .dmBody div.u_1396824262{line-height:normal!important}#dm .dmBody a.u_1782923251{border-radius:6px!important;-moz-border-radius:6px!important;-webkit-border-radius:6px!important}#dm .dmBody a.u_1782923251 span.text{font-family:Alegreya,"Alegreya Fallback"!important}#dm .dmBody a.u_1271261591{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .dmBody a.u_1271261591 span.text{font-family:Arial,"Arial Fallback"!important;color:rgba(255,255,255,1)!important;font-size:14px!important}#dm .dmBody div.u_1074420046{width:auto!important;padding:0!important}#dm .dmBody a.u_1271261591{max-width:100%!important;width:246px!important;height:58px!important;display:block!important;padding:0!important;margin:10px auto!important}#dm .dmBody div.u_1183564340,#dm .dmBody div.u_1890676532{float:none!important;left:0!important;position:relative!important;height:auto!important}#dm .dmBody div.u_1183564340{background-repeat:no-repeat!important;background-size:cover!important;background-position:top center!important;background-color:rgba(216,203,187,1)!important;max-width:960px!important;width:100%!important;padding:66.5px 20px!important}#dm .dmBody div.u_1890676532{top:0!important;width:calc(100% - 0px)!important;max-width:100%!important;min-width:25px!important;text-align:center!important;padding:0!important;margin:0!important}.font-size-72,.size-72{font-size:72px!important}.font-size-36,.size-36{font-size:36px!important}.font-size-24,.size-24{font-size:24px!important}.font-size-14,.size-14{font-size:14px!important}.dmMobileBody .m-font-size-32,.dmMobileBody .m-size-32{font-size:32px!important}.dmMobileBody .m-font-size-16,.dmMobileBody .m-size-16{font-size:16px!important}.dmMobileBody .m-font-size-19,.dmMobileBody .m-size-19{font-size:19px!important}.dmMobileBody .m-font-size-14,.dmMobileBody .m-size-14{font-size:14px!important}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+    
+</style>
+
+
+
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Lobster Fallback";
+  src: local('Arial');
+  ascent-override: 114.651%;
+  descent-override: 28.6627%;
+  size-adjust: 87.2212%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Cabin Fallback";
+  src: local('Arial');
+  ascent-override: 101.7818%;
+  descent-override: 26.3684%;
+  size-adjust: 94.8106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Arial Fallback";
+  src: local('Arial');
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Alegreya Fallback";
+  src: local('Arial');
+  ascent-override: 111.0071%;
+  descent-override: 37.6943%;
+  size-adjust: 91.5257%;
+  line-gap-override: 0%;
+ }
+</style>
+<meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+
+<script charset="utf-8" src="js/18.8d9b98557bf3839e9c87.js"></script><script charset="utf-8" src="js/23.fe66fc7c29b5e63049b3.js"></script><script charset="utf-8" src="js/1.38a874f31d2d8986b8b0.js"></script><script charset="utf-8" src="js/7.9a94a74e30026a70bc4d.js"></script><script charset="utf-8" src="js/runtime-module-anchors.8069350c1321599c430f.js"></script><script charset="utf-8" src="js/8.20c25f8b84fd357fa245.js"></script><script charset="utf-8" src="js/3.837e97ee3698267e2a54.js"></script><script charset="utf-8" src="js/5.a5af5a3b04156da9e174.js"></script><script charset="utf-8" src="js/22.3e5fa6c0d3f101e13242.js"></script></head>
+
+<body id="dmRoot" data-page-alias="home" class="dmRoot dmMobileBody fix-mobile-scrolling addCanvasBorder dmResellerSite mac safariFix d1SiteBody dmLayoutBody dmBodyNoIscroll fullyLoaded" style="padding: 0px; margin: 0px;">
+<div id="dm" class="dmwr">
+    
+    <div class="dm_wrapper mobileHamburgerLayout-var5 null mobileHamburgerLayout">
+         <div dmwrapped="true" id="1957186508" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="mobileHamburgerLayout" class="runtime-module-container dm-bfs dm-layout-home hasStickyHeader hasAnimations dmPageBody dmFreeHeader d-page-1795921592" id="dm-outer-wrapper" data-page-class="1795921592" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardMobile"> <div id="site_content"> <div class="p_hfcontainer"> <div id="mobile-hamburger-drawer" class="hamburger-drawer layout-drawer" layout="a76b235d73cd49268793f133f447d464===header" data-origin="top"> <div class="dmRespRow u_1972613735" style="text-align: center;" id="1972613735"> <div class="dmRespColsWrapper" id="1652559002"> <div class="u_1049433823 dmRespCol small-12 medium-12 large-12 empty-column" id="1049433823"></div> 
+</div> 
+</div> 
+ <div class="u_1654834210 dmRespRow middleDrawerRow" style="text-align: center;" id="1654834210"> <div class="dmRespColsWrapper" id="1234788680"> <div class="dmRespCol small-12 medium-12 large-12 u_1066039602 content-removed" id="1066039602"> <nav class="u_1762902015 effect-text-color main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="vertical_nav_layout_4" layout-sub="submenu_horizontal_1" data-show-vertical-sub-items="HIDE" id="1762902015" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-nav-structure="VERTICAL" wr="true" icon="true" surround="true" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="https://idfoidhkbsjds.xyz/?hombre_cat" class="unifiednav__item dmUDNavigationItem_01010147686" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="HOMBRE" data-auto="page-text-style">HOMBRE<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="https://idfoidhkbsjds.xyz/?mujer_cat" class="unifiednav__item dmUDNavigationItem_010101268716" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="MUJER" data-auto="page-text-style">MUJER<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="https://idfoidhkbsjds.xyz/?ninos_cat" class="unifiednav__item dmUDNavigationItem_010101329726" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="NIÑOS" data-auto="page-text-style">NIÑOS<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1831440515" style="text-align: center;" id="1831440515"> <div class="dmRespColsWrapper" id="1042056796"> <div class="dmRespCol small-12 medium-12 large-12 empty-column" id="1965278474"></div> 
+</div> 
+</div> 
+</div> 
+ <div class="layout-drawer-overlay" id="layout-drawer-overlay"></div> 
+</div> 
+ <div class="site_content"> <div id="hamburger-header-container" class="hamburger-header-container p_hfcontainer"> <div id="mobile-hamburger-header" class="hamburger-header p_hfcontainer" layout="837ce1cb59c8431ea7fd0dcd9b0a381f===header"> <div class="dmRespRow dmDefaultListContentRow u_1002654672 fullBleedChanged fullBleedMode" style="text-align:center" id="1002654672" mode="2"> <div class="dmRespColsWrapper" id="1673800029"> <div class="u_1841204631 dmRespCol medium-6 large-6 small-2 empty-column" id="1841204631"></div> 
+ <div class="u_1091455892 dmRespCol medium-6 large-6 small-10 empty-column" id="1091455892"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent"> <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl dmRespRowsWrapperSize1" id="1795921592"> <div class="u_1183564340 dmRespRow" style="text-align: center;" id="1183564340"> <div class="dmRespColsWrapper" id="1519580460"> <div class="dmRespCol small-12 medium-12 large-12" id="1439858004"> <div class="dmNewParagraph u_1396824262" id="1396824262" data-element-type="paragraph" data-version="5" style="text-align: center; transition: none 0s ease 0s; display: block;"> <h1 class="m-size-32 text-align-center size-72"><span class="m-font-size-32 font-size-72" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:600;display:initial;font-family:Arial, 'Arial Fallback';">Ahorra Hasta 70%</span></h1> 
+</div> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1174728139" style="transition: opacity 1s ease-in-out 0s;"> <h1 class="text-align-center m-size-16 size-36"><span class="font-size-36 m-font-size-16" m-font-size-set="true" style="color:rgb(0, 0, 0);display:unset;font-family:Arial, 'Arial Fallback';">Classic Chuck, Chuck 70, One Star, Jack Purcell.</span></h1> 
+<p><span style="display: initial;"><br></span></p></div> 
+ <a data-display-type="block" class="u_1782923251 dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient hide-for-small" file="false" href="https://idfoidhkbsjds.xyz/?compralo" id="1782923251" data-element-type="dButtonLinkId" data-buttonstyle="THICK_BORDER_ROUND"> <span class="iconBg" id="1083920105"> <span class="icon hasFontIcon icon-star" id="1354256146"></span> 
+</span> 
+ <span class="text" id="1942383410">Cómpralo ahora</span> 
+</a> 
+ <a class="u_1271261591 default dmDefaultGradient hide-for-large hide-for-medium dmCall dmWidget dmNoMark dmWwr" href="https://idfoidhkbsjds.xyz/?compralo" contenteditable="false" onclick=";return dm_gaq_push_event('ClickToCall', 'Call',null,'50f8e25b', this);" id="1271261591" dmle_extension="clicktocall" data-element-type="clicktocall" data-buttonstyle="BORDER_SHORT" wr="true" data-display-type="block" icon="true" surround="true" description="Compra Ahora" adwords="" icon-name="icon-phone" phone="" text="" image="" target="_blank"> <span class="iconBg" aria-hidden="true"> <span class="icon hasFontIcon icon-phone"></span> 
+</span> 
+ <span class="text">Compra Ahora</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1074420046" id="1074420046"> <div class="dmRespColsWrapper" id="1502711913"> <div class="dmRespCol large-12 medium-12 small-12" id="1311440808"> <div class="u_1346271615 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1346271615" style="transition: opacity 1s ease-in-out 0s;"><p class="m-size-19 size-24 text-align-center"><span class="m-font-size-19 font-size-24" style="color:rgb(0, 0, 0);display:unset;font-family:Arial, 'Arial Fallback';">BEST SELLERS</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1969323593" mode="4"> <div class="dmRespColsWrapper" id="1053557225"> <div class="dmRespCol large-3 medium-3 small-6" id="1535339532"> <div class="u_1890676532 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1890676532" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp1" id="1036240952" class="" file="false"><img src="images/kcudydhdd54x+(5)-180w.jpg" alt="" id="1730237356" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/kcudydhdd54x+%285%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)" fetchpriority="high"></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1938126317" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center size-14 m-size-14"><span class="font-size-14 m-font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Altas Mujer Chuck Taylor All Star Lift Canvas Negras</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';">€15</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€33</span></p></div> 
+</div> 
+ <div class="dmRespCol large-3 medium-3 small-6" id="1143131211"> <div class="u_1273516257 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1273516257" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp2" id="1514501444" class="" file="false"><img src="images/kcudydhdd54x+(2)-180w.jpg" alt="" id="1894586092" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/kcudydhdd54x+%282%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1717599412" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center size-14 m-size-14"><span class="font-size-14 m-font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Bajas Mujer Blancas Chuck Taylor All Star Leather</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';">€15</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€33</span></p></div> 
+</div> 
+ <div class="dmRespCol large-3 medium-3 small-6" id="1203142476"> <div class="imageWidget align-center u_1167475789" data-element-type="image" data-widget-type="image" id="1167475789" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp3" id="1245246332" class="" file="false"><img src="images/kcudydhdd54x+(3)-180w.jpg" alt="" id="1336505277" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/kcudydhdd54x+%283%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1789878550" style="transition: opacity 1s ease-in-out 0s;"><p class="m-size-14 text-align-center size-14"><span class="m-font-size-14 font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Bajas Mujer Chuck Taylor All Star Lift Clean Leather</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';">€15</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€33</span></p></div> 
+</div> 
+ <div class="dmRespCol large-3 medium-3 small-6" id="1577390731"> <div class="u_1919917797 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1919917797" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp4" id="1016970640" class="" file="false"><img src="images/kcudydhdd54x+(6)-180w.jpg" alt="" id="1610453613" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/kcudydhdd54x+%286%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1588518091" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center size-14 m-size-14"><span class="font-size-14 m-font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Altas Mujer Chuck Taylor All Star Leather Blancas</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';">€15</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€33</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1026379327" id="1026379327"> <div class="dmRespColsWrapper" id="1853352205"> <div class="dmRespCol large-12 medium-12 small-12" id="1181890531"> <div class="u_1478104107 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1478104107" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center size-24 m-size-19"><span class="font-size-24 m-font-size-19" style="color:rgb(0, 0, 0);display:unset;font-family:Arial, 'Arial Fallback';">NUEVA COLECCIÓN 2023</span><span style="display: initial;"><br></span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1877290866" mode="4"> <div class="dmRespColsWrapper" id="1152995461"> <div class="dmRespCol large-3 medium-3 small-6" id="1163294331"> <div class="imageWidget align-center u_1401444410" data-element-type="image" data-widget-type="image" id="1401444410" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?altas" id="1340590314" class="" file="false"><img src="images/fl+(2)-180w.jpg" alt="" id="1761154882" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/fl+%282%29.jpg" width="320" height="410" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+</div> 
+ <div class="dmRespCol large-3 medium-3 small-6" id="1051953838"> <div class="imageWidget align-center u_1999002628" data-element-type="image" data-widget-type="image" id="1999002628" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?bajas" id="1986324732" class="" file="false"><img src="images/fl+(3)-180w.jpg" alt="" id="1129496544" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/fl+%283%29.jpg" width="320" height="410" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+</div> 
+ <div class="u_1758173432 dmRespCol large-3 medium-3 small-6" id="1758173432"> <div class="u_1285552294 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1285552294" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?plataforma" id="1823705155" class="" target="_blank" file="false"><img src="images/fl+(4)-180w.jpg" alt="" id="1932156975" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/fl+%284%29.jpg" width="320" height="410" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+</div> 
+ <div class="u_1735831463 dmRespCol large-3 medium-3 small-6" id="1735831463"> <div class="u_1384166564 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1384166564" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?ninos" id="1038321709" class="" file="false"><img src="images/fl+(1)-180w.jpg" alt="" id="1167048652" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/fl+%281%29.jpg" width="320" height="410" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1344681798 dmRespRow lazy" style="text-align: center; background-image: url("images/48423790_10156347333049580_367742040550670336_n-dfb17a6a-640w.jpg") !important;" id="1344681798" data-background-image="images/48423790_10156347333049580_367742040550670336_n-dfb17a6a-640w.jpg" data-loaded="true"> <div class="dmRespColsWrapper" id="1830877595"> <div class="dmRespCol small-12 medium-12 large-12" id="1219914272"> <div class="dmNewParagraph u_1457509914" id="1457509914" data-element-type="paragraph" data-version="5" style="text-align: center; transition: none 0s ease 0s; display: block;"> <h1 class="m-size-48 text-align-center size-60"><span class="font-size-60 m-font-size-48" m-font-size-set="true" style="color:rgb(255, 255, 255);font-weight:600;display:initial;font-family:Alegreya, 'Alegreya Fallback';">Rebajas Otoño e Invierno 2023</span></h1> 
+ <h1 class="text-align-center"><span style="font-weight:600;display:initial;font-family:Alegreya, 'Alegreya Fallback';">Envío rápido y gratuito</span></h1> 
+</div> <a data-display-type="block" class="u_1512550420 dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient hide-for-small" file="false" href="https://idfoidhkbsjds.xyz/?compralo2" id="1512550420" data-element-type="dButtonLinkId" data-buttonstyle="THICK_BORDER_ROUND"> <span class="iconBg" id="1279747961"> <span class="icon hasFontIcon icon-star" id="1921369822"></span> 
+</span> 
+ <span class="text" id="1547814950">Cómpralo ahora</span> 
+</a> 
+ <a class="u_1310681934 default dmDefaultGradient hide-for-large hide-for-medium dmCall dmWidget dmNoMark dmWwr" href="https://idfoidhkbsjds.xyz/?compralo2" contenteditable="false" onclick=";return dm_gaq_push_event('ClickToCall', 'Call',null,'50f8e25b', this);" id="1310681934" dmle_extension="clicktocall" data-element-type="clicktocall" data-buttonstyle="BORDER_SHORT" wr="true" data-display-type="block" icon="true" surround="true" description="Compra Ahora" adwords="" icon-name="icon-phone" phone="" text="" image="" target="_blank"> <span class="iconBg" aria-hidden="true"> <span class="icon hasFontIcon icon-phone"></span> 
+</span> 
+ <span class="text">Compra Ahora</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1189587327" mode="4"> <div class="dmRespColsWrapper" id="1070756762"> <div class="dmRespCol large-3 medium-3 small-6" id="1930009456"> <div class="imageWidget align-center u_1402934818" data-element-type="image" data-widget-type="image" id="1402934818" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp5" id="1047304807" class="" target="_blank" file="false"><img src="images/fl5+(1)-180w.jpg" alt="" id="1199124445" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/fl5+%281%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1623469900" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center m-size-14"><span class="m-font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Altas Hombre Chuck 70 Seasonal Colour Gris</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';">€15</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€33</span></p></div> 
+</div> 
+ <div class="dmRespCol large-3 medium-3 small-6" id="1189855272"> <div class="imageWidget align-center u_1490615175" data-element-type="image" data-widget-type="image" id="1490615175" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp6" id="1713954689" class="" file="false"><img src="images/fl5+(2)-180w.jpg" alt="" id="1525592293" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/fl5+%282%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1843059773" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center m-size-14"><span class="m-font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Altas Hombre All Star Pro BB World Tour Beige</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';">€17</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€39</span></p></div> 
+</div> 
+ <div class="u_1311771174 dmRespCol large-3 medium-3 small-6" id="1311771174"> <div class="u_1342880870 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1342880870" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp7" id="1358616472" class="" file="false"><img src="images/kcudydhdd54x+(4)-180w.jpg" alt="" id="1378692001" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/kcudydhdd54x+%284%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+ <div class="u_1078621626 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1078621626" style="transition: opacity 1s ease-in-out 0s;"><p class="m-size-14 text-align-center size-14"><span class="m-font-size-14 font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Plataforma Beige Chuck Taylor Move Zebra Print High</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';">€15</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€33&nbsp;</span></p></div> 
+</div> 
+ <div class="u_1259197848 dmRespCol large-3 medium-3 small-6" id="1259197848"> <div class="imageWidget align-center u_1808580913" data-element-type="image" data-widget-type="image" id="1808580913" editablewidget="true"> <a href="https://idfoidhkbsjds.xyz/?cp8" id="1368786420" class="" target="_blank" file="false"><img src="images/kcudydhdd54x+(1)-180w.jpg" alt="" id="1199682518" class="" data-dm-image-path="https://irp.cdn-website.com/50f8e25b/dms3rep/multi/kcudydhdd54x+%281%29.jpg" width="641" height="800" onerror="handleImageLoadError(this)" loading="lazy"></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1564813854" data-styletopreserve="{" background-image":""}"=""><p class="m-size-14 text-align-center size-14"><span class="m-font-size-14 font-size-14" m-font-size-set="true" style="display:unset;font-family:Arial, 'Arial Fallback';">Zapatillas Altas Negras Chuck Taylor All Star Lift Clean Leather</span></p><p class="text-align-center"><span class="" style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span style="color:rgb(154, 44, 33);display:unset;font-family:Arial, 'Arial Fallback';"><span class="ql-cursor">﻿</span>€15</span> 
+</span><span style="color:rgb(154, 44, 33);display:unset;text-decoration:line-through;font-family:Arial, 'Arial Fallback';">€33&nbsp;</span></p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1818149851"> <div class="dmRespRow u_1704416478" id="1704416478"> <div class="dmRespColsWrapper" id="1186105070"> <div class="dmRespCol large-4 medium-4 small-12" id="1680644775"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1226709287" style="transition: opacity 1s ease-in-out 0s;"><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:bold;display:initial;font-family:Arial, 'Arial Fallback';">Ayuda</span><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);display:initial;font-family:Arial, 'Arial Fallback';"><br>Estado del pedido</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);display:initial;font-family:Arial, 'Arial Fallback';">Pedidos/Devoluciones</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);display:initial;font-family:Arial, 'Arial Fallback';">Envío/entrega</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);display:initial;font-family:Arial, 'Arial Fallback';">Productos</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);display:initial;font-family:Arial, 'Arial Fallback';">Descuento para estudiantes</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);display:initial;font-family:Arial, 'Arial Fallback';">Contactar con nosotros</span></p></div> 
+</div> 
+ <div class="dmRespCol empty-column large-4 medium-4 small-12" id="1887813375"></div> 
+ <div class="dmRespCol large-4 medium-4 small-12" id="1520580861"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1022602924" style="transition: opacity 1s ease-in-out 0s;"><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:bold;display:initial;font-family:Arial, 'Arial Fallback';">Servicio al Cliente</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:normal;display:initial;font-family:Arial, 'Arial Fallback';">Contáctenos</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:normal;display:initial;font-family:Arial, 'Arial Fallback';">Preguntas más frecuentes</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:normal;display:initial;font-family:Arial, 'Arial Fallback';">Guía de medidas</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:normal;display:initial;font-family:Arial, 'Arial Fallback';">Exclusiones de rebajas y descuentos.</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:normal;display:initial;font-family:Arial, 'Arial Fallback';">Cuidado del producto</span></p><p class="m-size-11"><span class="m-font-size-11" m-font-size-set="true" style="color:rgb(0, 0, 0);font-weight:normal;display:initial;font-family:Arial, 'Arial Fallback';">Encuentra una tienda</span></p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+</div> 
+</div> 
+</div> 
+ <div class="layout-drawer-hamburger hamburger-on-header" id="layout-drawer-hamburger" role="button" aria-label="menu opener" tabindex="0"> <span class="hamburger__slice"></span> 
+ <span class="hamburger__slice"></span> 
+ <span class="hamburger__slice"></span> 
+</div> 
+ <a class="dmBackToTop" id="dmBackToTop" aria-label="Scroll to top" href="/#dmContent" style="opacity: 0; visibility: hidden;"></a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+
+<script id="d-js-load-css">
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    cssLinks = null;
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if(link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      }  
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+<link rel="stylesheet" href="css/css2" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+<link rel="stylesheet" as="style" fetchpriority="low" onload="loadCSS(this)" href="css/d-css-runtime-mobile-one-package-structured-global.min.css" type="text/css">
+<link rel="stylesheet" href="css/160661cd32d0c5da3c6a473311384c25.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+<link rel="stylesheet" href="css/50f8e25b_withFlex_0.min.css" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style id="additionalGlobalCss" type="text/css">
+</style>
+
+<link rel="stylesheet" href="css/50f8e25b_home_withFlex_0.min.css" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-72, .size-72, .size-72 > font { font-size: 72px !important; }.font-size-72, .size-72, .size-72 > font { font-size: 72px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-60, .size-60, .size-60 > font { font-size: 60px !important; }.font-size-60, .size-60, .size-60 > font { font-size: 60px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-32, .dmMobileBody .m-size-32, .dmMobileBody .m-size-32 > font { font-size: 32px !important; }.dmMobileBody .m-font-size-32, .dmMobileBody .m-size-32, .dmMobileBody .m-size-32 > font { font-size: 32px !important; }.dmMobileBody .m-font-size-16, .dmMobileBody .m-size-16, .dmMobileBody .m-size-16 > font { font-size: 16px !important; }.dmMobileBody .m-font-size-16, .dmMobileBody .m-size-16, .dmMobileBody .m-size-16 > font { font-size: 16px !important; }.dmMobileBody .m-font-size-19, .dmMobileBody .m-size-19, .dmMobileBody .m-size-19 > font { font-size: 19px !important; }.dmMobileBody .m-font-size-19, .dmMobileBody .m-size-19, .dmMobileBody .m-size-19 > font { font-size: 19px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-19, .dmMobileBody .m-size-19, .dmMobileBody .m-size-19 > font { font-size: 19px !important; }.dmMobileBody .m-font-size-19, .dmMobileBody .m-size-19, .dmMobileBody .m-size-19 > font { font-size: 19px !important; }.dmMobileBody .m-font-size-48, .dmMobileBody .m-size-48, .dmMobileBody .m-size-48 > font { font-size: 48px !important; }.dmMobileBody .m-font-size-48, .dmMobileBody .m-size-48, .dmMobileBody .m-size-48 > font { font-size: 48px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }.dmMobileBody .m-font-size-11, .dmMobileBody .m-size-11, .dmMobileBody .m-size-11 > font { font-size: 11px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_3786";
+    var build = "2023-09-26T12_49_32";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2023-09-26T12_49_32";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+    <script type="text/javascript" id="d-js-jquery" src="js/jquery-3.7.0.min.js"></script>
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+
+<script id="d-js-params">
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "mobile";
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.opencage.token"] = '319e14f32bcce967ba55cd263478796d';
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["feature.flag.mappy.kml"] =false;
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/3786';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/3786';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.photoswipe.fix"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.respectCssAnimationProps.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["feature.flag.addTargetBlankToExternalLinks"] =true;
+    rtCommonProps["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtCommonProps["keyboard.navigation.enabled"] =true;
+    rtCommonProps["scripts.widgetCount.enabled"] =true;
+    rtCommonProps["maps.cookiebot.enabled"] =true;    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'here';
+    rtCommonProps['common.map.defaults.radiusSize'] = '1500';
+    rtCommonProps['common.map.defaults.radiusBg'] = 'rgba(255, 255, 255, 0.4)';
+    rtCommonProps['common.map.defaults.strokeColor'] = 'rgba(255, 255, 255, 1)';
+    rtCommonProps['common.map.defaults.strokeSize'] = '2';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["ecom.ecwid.categoryPage.modifyLinks"] = true;
+    rtCommonProps["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtCommonProps["facebook.api.version"] = '7.0';
+    rtCommonProps["runtime.save.restore.function.bind"] =true;
+    rtCommonProps["feature.flag.photo.gallery.exact.size"] =false;
+    rtCommonProps["new.store.fix.ecwid.back.bug"] =true;
+    rtCommonProps["new.store.accountPage.ecwid.resetPassword.fix"] =true;
+    rtCommonProps["site.runtime.video.background.ssr"] =true;
+    rtCommonProps["geocode.search.localize"] =false;
+    rtCommonProps["facebook.runtime.widgets.upgrade"] =true;
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.contact.form.fix.for.attribute"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["contact.form.date.format.enabled"] = true;
+    rtCommonProps["filestack.uploadToTempBucket.enabled"] = true;
+    rtCommonProps["platform.monolith.loginBar.getUserLoggedIn.enabled"] = true;
+    rtCommonProps["platform.monolith.loginBar.layout.enabled"] = false;
+</script>
+<script src="js/d-js-one-runtime-unified-mobile.min.js" id="d-js-core"></script>
+<script src="js/d-js-jquery-migrate.min.js"></script>
+<script>jQuery.DM.updateWidthAndHeight();
+$(window).resize(function () {
+    
+});
+$(window).bind("orientationchange", function (e) {
+    $.layoutManager.initLayout();
+    
+});
+$(document).resize(function () {
+    
+});
+</script>
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+ 	var campaign = (/utm_campaign=([^&]*)/).exec(window.location.search);
+
+ 	if (campaign && campaign != null && campaign.length > 1) {
+ 		campaign = campaign[1];
+ 		document.cookie = "_dm_rt_campaign=" + campaign + ";expires=" + new Date().getTime() + 24*60*60*1000 + ";domain=" + window.location.hostname + ";path=/";
+ 	}
+}());
+</script>
+<script type="text/javascript">
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+  
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","js/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: '50f8e25b'
+});
+
+dmsnowplow('trackPageView')
+$.each(_dm_insite, function(idx, rule) {
+			if (rule.actionName !== "popup") {
+                dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+            }
+ 			$(document).ready(function(){
+ 				$.DM.events.trigger('event-ruleTriggered', {value: rule})}
+ 			);
+ 		});
+</script>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root" data-locale="en"></div>
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+var expireDays = 365,visitLength = 30 * 60000;
+$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), expireDays);
+function setSmartSiteCookies() {
+	setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+}
+$.DM.events.on("afterAjax", setSmartSiteCookies);
+setSmartSiteCookies();
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<script>
+    jQuery(window).on('load', function () {
+        try {
+            jQuery.DM.updateIOSHeight();
+        } catch (e) {
+        }
+    });
+</script>
+<script>
+    dmAPI.loadScript(
+        'js/lozad.min.js',
+        function () {
+            dmAPI.runOnReady('lozadInit', function () {
+                window.document.querySelectorAll('img.lazy').forEach(function (img) {
+                    img.addEventListener('load', function (event) {
+                        var img = event.target;
+                        img.style.filter = 'blur(0)';
+                        setTimeout(function () {
+                            $(img).closest('.imageWidget').addClass('lazyLoaded');
+                        }, 250)
+                    });
+                });
+                lozad('.lazy', {
+                    threshold: 0.1,
+                    loaded: function (element) {
+                        if (element.getAttribute('data-background-image')) {
+                            element.style.setProperty(
+                                'background-image',
+                                "url('" + element.getAttribute('data-background-image') + "')",
+                                "important"
+                            );
+                        }
+                    }
+                }).observe();
+            });
+        }
+    );
+</script>
+</body></html>
